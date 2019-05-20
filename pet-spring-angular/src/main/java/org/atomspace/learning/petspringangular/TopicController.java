@@ -20,7 +20,10 @@ public class TopicController {
     TopicRepository topicRepository;
 
     @GetMapping("/topics")
-    public List<Topic> search(@RequestParam("searchString") String searchString){
+    public List<Topic> search(@RequestParam(value = "searchString", required = false) String searchString){
+        if(searchString == null || searchString.isEmpty()){
+            return topicRepository.findAll();
+        }
         return topicRepository.findByAttributeContainsText("description", searchString);
     }
     @GetMapping("/topic/{id}")
@@ -47,7 +50,7 @@ public class TopicController {
         return new ResponseEntity(updatedTopic, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "topic/{id}")
+    @PatchMapping(value = "/topic/{id}")
     public ResponseEntity patchTopic(@PathVariable Long id, @RequestBody Topic topic){
         Topic updatedTopic = topicRepository.updateWith(topic, id);
         if(updatedTopic == null ){

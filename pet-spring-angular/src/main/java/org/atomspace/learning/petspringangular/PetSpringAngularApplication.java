@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Arrays;
-
 @SpringBootApplication
 public class PetSpringAngularApplication {
 
@@ -18,10 +16,10 @@ public class PetSpringAngularApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx){
 		return args -> {
-		    System.out.println("Beans provided by Spring");
-		    String[] beanNames = ctx.getBeanDefinitionNames();
-            Arrays.sort(beanNames);
-            Arrays.stream(beanNames).forEach( beanName -> System.out.println(beanName));
+//		    System.out.println("Beans provided by Spring");
+//		    String[] beanNames = ctx.getBeanDefinitionNames();
+//            Arrays.sort(beanNames);
+//            Arrays.stream(beanNames).forEach( beanName -> System.out.println(beanName));
         };
 	}
 }

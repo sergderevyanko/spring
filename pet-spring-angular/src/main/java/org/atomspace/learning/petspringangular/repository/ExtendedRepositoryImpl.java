@@ -36,7 +36,9 @@ public class ExtendedRepositoryImpl<T, ID extends Serializable>
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = builder.createQuery(getDomainClass());
         Root<T> root = criteriaQuery.from(getDomainClass());
-        criteriaQuery.select(root).where(builder.like(root.get(attributeName), "%"+text+"%"));
+        criteriaQuery.select(root).where(
+                builder.like(builder.lower(root.get(attributeName)), "%"+text.toLowerCase()+"%")
+        );
         TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
         return query.getResultList();
     }

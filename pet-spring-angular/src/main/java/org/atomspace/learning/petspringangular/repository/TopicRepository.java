@@ -12,4 +12,7 @@ import java.util.List;
 @Repository
 public interface TopicRepository extends CrudRepository<Topic, Long>, ExtendedRepository<Topic, Long> {
     List<Topic> findByDescriptionContains(String searchString);
+
+    @Override
+    List<Topic> findAll();
 }
