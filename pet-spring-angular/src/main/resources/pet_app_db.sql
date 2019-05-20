@@ -1,0 +1,18 @@
+DROP database if EXISTS petapp;
+DROP USER IF EXISTS petapp_user;
+
+CREATE USER petapp_user identified by 'test';
+CREATE DATABASE petapp CHARACTER SET utf8;
+GRANT ALL PRiVILEGES ON petapp.* TO petapp_user WITH GRANT OPTION;
+
+USE petapp;
+
+CREATE TABLE topic(
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(80) NULL DEFAULT NULL,
+  description VARCHAR(5000) NULL DEFAULT NULL,
+  text_field1 VARCHAR(500) NULL DEFAULT NULL,
+  text_field2 VARCHAR(500) NULL DEFAULT NULL
+)
+
+ENGINE=InnoDB;
