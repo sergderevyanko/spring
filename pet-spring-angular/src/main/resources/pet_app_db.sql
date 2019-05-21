@@ -1,5 +1,5 @@
 DROP database if EXISTS petapp;
-DROP USER IF EXISTS petapp_user;
+DROP USER petapp_user;
 
 CREATE USER petapp_user identified by 'test';
 CREATE DATABASE petapp CHARACTER SET utf8;
