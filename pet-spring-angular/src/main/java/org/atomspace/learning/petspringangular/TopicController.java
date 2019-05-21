@@ -14,6 +14,7 @@ import java.util.Optional;
  * Created by sergey.derevyanko on 19.05.2019.
  */
 @RestController
+@CrossOrigin("http://localhost:4200")
 public class TopicController {
 
     @Autowired

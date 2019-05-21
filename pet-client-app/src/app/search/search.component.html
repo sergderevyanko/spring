@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Topic List
+  </h1>
+  <button (click)="getTopicList()">Get Topic</button>
+  <ul *ngIf="topicList">
+    <li *ngFor="let topic of topicList">
+      {{ topic }}
+    </li>
+  </ul>
+</div>
